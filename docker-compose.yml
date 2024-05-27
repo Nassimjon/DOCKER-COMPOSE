@@ -1,0 +1,26 @@
+version: '2.1'
+
+services:
+      postgresql_01:
+          image: postgres
+          container_name: postgres_01
+          restart: always
+          ports:
+            - 5411:5432
+          environment:
+              POSTGRES_PASSWORD: 1234
+              POSTGRES_USER: postgres
+          volumes:
+            - /home/nashimudes/Desktop/test_01:/var/lib/postgresql/data
+
+      postgresql_02:
+          image: postgres
+          container_name: postgres_02
+          restart: always
+          ports:
+            - 5422:5432
+          environment:
+              POSTGRES_PASSWORD: 1234
+              POSTGRES_USER: postgres
+          volumes:
+            - /home/nashimudes/Desktop/test_02:/var/lib/postgresql/data
