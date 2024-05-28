@@ -1,0 +1,30 @@
+version: '2.0'
+
+services:
+    postgres_01:
+      image: postgres
+      container_name: rep_postgres1
+      restart: always
+      ports:
+        - 5433:5432
+      environment:
+          POSTGRES_PASSWORD: 1234
+          POSTGRES_USER: postgres
+          POSTGRES_DB: mdb_test
+          PGDATA: /var/lib/postgresql/data
+      volumes:
+        -  /mount_folders/rep_test2/postgresql1:/var/lib/postgresql/data
+
+    postgres_02:
+      image: postgres
+      container_name: rep_postgres2
+      restart: always
+      ports:
+        - 5444:5432
+      environment:
+          POSTGRES_PASSWORD: 1234
+          POSTGRES_USER: postgres
+          POSTGRES_DB: sdb_test
+          PGDATA: /var/lib/postgresql/data
+      volumes:
+        - /mount_folders/rep_test2/postgresql2:/var/lib/postgresql/data
